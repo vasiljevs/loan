@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+** MEDIA: max-width: 1200px (1199)
+*/
+
+@media (max-width: 74.94em) {}
+
+/*
+** MEDIA: max-width: 992px (991)
+*/
+
+@media (max-width: 61.94em) {}
+
+/*
+** MEDIA: max-width: 768px (767)
+*/
+
+@media (max-width: 47.94em) {}
+
+/*
+** MEDIA: max-width: 576px (575)
+*/
+
+@media (max-width: 35.94em) {}
