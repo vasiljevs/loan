@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -26,7 +27,7 @@ body {
   padding: 24px 18px;
   border-radius: 4px;
   background: #FFF;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 h1 {
@@ -52,7 +53,7 @@ input {
   border-bottom: 2px solid #000;
 }
 
-input,
+input, 
 button {
   width: 100%;
   font-size: 16px;
@@ -63,3 +64,27 @@ button {
   margin-top: 10px;
   border: 2px solid #000;
 }
+
+ //*
+// MEDIA: max-width: 1200px (1199)
+ //*
+
+@media (max-width: 74.94em) {}
+
+ //*
+//** MEDIA: max-width: 992px (991)
+ //*
+
+@media (max-width: 61.94em) {}
+
+ //*
+//** MEDIA: max-width: 768px (767)
+ //*
+
+@media (max-width: 47.94em) {}
+
+ //*
+//** MEDIA: max-width: 576px (575)
+ //*
+
+@media (max-width: 35.94em) {}

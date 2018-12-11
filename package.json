@@ -1,0 +1,26 @@
+{
+  "name": "loan-calculator",
+  "version": "1.0.0",
+  "description": "Loan Calculator",
+  "scripts": {
+    "watch": "sass --watch sass/app.scss:css/app.css --no-source-map"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vasiljevs/loan-calculator.git"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Arturs Vasiljevs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vasiljevs/loan-calculator/issues"
+  },
+  "homepage": "https://github.com/vasiljevs/loan-calculator#readme",
+  "dependencies": {
+    "sass": "^1.15.2"
+  }
+}
