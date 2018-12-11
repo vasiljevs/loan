@@ -1,3 +1,26 @@
+// COLOR
+
+$white:     #FFF;
+$black:     #000;
+$mandy:     #ED5365;
+$wispPink:  #FDEFEF;
+
+// FONT SIZE
+
+$browser: 16px;
+
+/*
+** FUNCTIONS
+*/
+
+@function rem ($target, $context: $browser) {
+  @return ($target / $context) * 1rem;
+}
+
+/*
+** THEME START
+*/
+
 * {
   margin: 0;
   padding: 0;
@@ -13,78 +36,152 @@ body {
 }
 
 body {
-  font: 400 18px/28px sans-serif;
+  font: 400 #{rem(18px)}/#{rem(28px)} sans-serif;
   display: flex;
   justify-content: center;
-  background: #ed5365;
+  background: $mandy;
 }
+
+/*
+** Classes
+*/
+
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}
+
+.primary {
+  width: 100%;
+  margin-top: rem(10px);
+  border: rem(3px) solid $black;
+  padding: rem(12px) rem(14px);
+  font-size: rem(16px);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/*
+** Calculator
+*/
 
 .loan {
   align-self: center;
   width: 100%;
   max-width: 400px;
-  margin: 0 16px;
-  padding: 24px 18px;
-  border-radius: 4px;
-  background: #FFF;
+  margin: 0 rem(16px);
+  padding: rem(24px) rem(18px);
+  border-radius: rem(4px);
+  background: $white;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
-h1 {
-  font-size: 32px;
-  line-height: 42px;
+.display {
+  background: $mandy;
+  margin-bottom: rem(12px);
+  padding: rem(8px) 0;
+  border-radius: rem(4px);
+  box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, .3);
+}
+
+.heading {
+  color: $white;
+  font-size: rem(32px);
   text-align: center;
-  margin-bottom: 12px;
-  border-bottom: 1px solid #000;
-  padding-bottom: 8px;
+  line-height: rem(42px);
+  text-shadow: .5px .5px 2px rgba(0, 0, 0, .6);
 }
 
-.item {
-  margin-bottom: 14px;
+.preview {
+  position: relative;
 }
 
-label {
-  display: block;
+.application {
+  .item {
+    margin-bottom: rem(14px);
+  }
+
+  label {
+    display: block;
+    font-weight: 700;
+  }
+
+  input {
+    width: 100%;
+    background: #fdefef;
+    border: 0;
+    border-bottom: rem(2px) solid $black;
+    padding: rem(12px) rem(14px);
+    font-size: rem(16px);
+  }
 }
 
-input {
-  border: 0;
-  background: #fdefef;
-  border-bottom: 2px solid #000;
-}
+/*
+** Overlay
+*/
 
-input, 
-button {
+.overlay {
   width: 100%;
-  font-size: 16px;
-  padding: 12px 14px;
+  height: 100%;
+  background: $white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+
+  .primary {
+    position: inherit;
+    bottom: 0;
+  }
 }
 
-button {
-  margin-top: 10px;
-  border: 2px solid #000;
+.total {
+  margin: rem(6px) 0 rem(12px);
+  border-bottom: rem(4px) solid $black;
+  padding: rem(18px) 0;
+  font-size: rem(36px);
+  line-height: rem(46px);
+  text-align: center;
+  background: $wispPink;
 }
 
- //*
-// MEDIA: max-width: 1200px (1199)
- //*
+.grid {
+  display: flex;
 
-@media (max-width: 74.94em) {}
+  .half {
+    width: 48%;
+    margin-right: rem(14px);
+    background: $wispPink;
+    border-bottom: rem(3px) solid $black;
 
- //*
-//** MEDIA: max-width: 992px (991)
- //*
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 
-@media (max-width: 61.94em) {}
+  h3 {
+    font-size: rem(14px);
+    line-height: rem(24px);
+    padding-bottom: rem(6px);
+    background: $white;
+  }
 
- //*
-//** MEDIA: max-width: 768px (767)
- //*
+  p {
+    font-size: rem(18px);
+    line-height: rem(28px);
+    font-weight: 700;
+    text-align: center;
+    padding: rem(8px) 0 rem(6px);
+  }
+}
 
-@media (max-width: 47.94em) {}
-
- //*
-//** MEDIA: max-width: 576px (575)
- //*
-
-@media (max-width: 35.94em) {}
+.disclaimer {
+  margin-top: rem(24px);
+  text-align: center;
+  font-size: rem(16px);
+  line-height: rem(22px);
+}

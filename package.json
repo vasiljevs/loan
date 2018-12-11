@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Loan Calculator",
   "scripts": {
-    "watch": "sass --watch sass/app.scss:css/app.css --no-source-map"
+    "watch": "sass --watch sass/app.scss:css/app.min.css --no-source-map --style compressed"
   },
   "repository": {
     "type": "git",
