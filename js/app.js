@@ -1,64 +1,97 @@
 'use strict';
 
-const amount = document.querySelector('.payment-amount'),
-    interest = document.querySelector('.payment-interest'),
-      period = document.querySelector('.payment-period');
+const application = document.querySelector('.application'),
+amount = document.querySelector('.payment-amount'),
+interest = document.querySelector('.payment-interest'),
+period = document.querySelector('.payment-period'),
+overlayButton = document.querySelector('.overlay-btn');
 
+// Change heading
 const setHeading = name => {
   const heading = document.querySelector('.heading');
   heading.textContent = name;
 };
 
+// Change overlay class name
 const setOverlayClass = (stClass, ndClass) => {
   const overlay = document.querySelector('.overlay');
   overlay.classList.replace(stClass, ndClass);
 };
 
 const loan = {
-  getPrincipal: function () {
+  // Get amount value
+  getPrincipal ()
+  {
     return parseFloat(amount.value);
   },
-  getInterest: function () {
+  // Get percentage value
+  getInterest ()
+  {
     return parseFloat(interest.value) / 100 / 12;
   },
-  getPeriod: function () {
+  // Get period value
+  getPeriod ()
+  {
     return parseFloat(period.value) * 12;
+  },
+  // Get interest rate
+  getPeriodicInterestRate ()
+  {
+    return Math.pow(
+      1 + this.getInterest(), this.getPeriod()
+    );
+  },
+  // Get discount factor
+  getDiscountFactor ()
+  {
+    return (
+      this.getPrincipal() * 
+      this.getPeriodicInterestRate() * 
+      this.getInterest()) / (this.getPeriodicInterestRate() - 1
+    );
+  },
+  // Get monthly amount
+  getMonthlyAmount ()
+  {
+    return this.getDiscountFactor().toFixed(2);
+  },
+  // Get total interest amount
+  getInterestAmount ()
+  {
+    return ((this.getDiscountFactor() * 
+    this.getPeriod()) - this.getPrincipal()).toFixed(2);
+  },
+  // Get total payment amount
+  getTotalPayment ()
+  {
+    return (
+      this.getDiscountFactor() * 
+      this.getPeriod()
+    ).toFixed(2);
   }
 };
 
-document.querySelector('.application').addEventListener('submit', (e) => {
+const getResult = (e) => {
   setOverlayClass('d-none', 'd-block');
   setHeading('Results');
 
-  // GET  values
-  const principal = loan.getPrincipal();
-  const loanInterest = loan.getInterest();
-  const loanPayment = loan.getPeriod();
-
-  // Calculate monthly payment
-  const calculate = Math.pow(1 + loanInterest, loanPayment);
-  const calculateMonthly = (principal * calculate * loanInterest) / (calculate - 1);
-
-  // Check if the supplied number is finite
-  if (isFinite(calculateMonthly)) {
-    const calcMonthly = calculateMonthly.toFixed(2);
-    const calcInterest = ((calculateMonthly * loanPayment) - principal).toFixed(2);
-    const calcTotal = (calculateMonthly * loanPayment).toFixed(2);
-
-    const monthly = document.querySelector('.monthly');
-    monthly.textContent = `${calcMonthly} USD`;
-
-    const interest = document.querySelector('.interest');
-    interest.textContent = `${calcInterest} USD`;
-
-    const total = document.querySelector('.total');
-    total.textContent = `${calcTotal} USD`;
-  }
+  // Set total payment amount
+  const total = document.querySelector('.total');
+  total.textContent = `${loan.getTotalPayment()} USD`;
+  // Set monthly payment amount
+  const monthly = document.querySelector('.monthly');
+  monthly.textContent = `${loan.getMonthlyAmount()} USD`;
+  // Set total interest amount
+  const interest = document.querySelector('.interest');
+  interest.textContent = `${loan.getInterestAmount()} USD`;
 
   e.preventDefault();
-});
+};
 
-document.querySelector('.overlay button').addEventListener('click', () => {
+const getPreview = () => {
   setOverlayClass('d-block', 'd-none');
   setHeading('Loan Calculator');
-});
+};
+
+application.addEventListener('submit', getResult);
+overlayButton.addEventListener('click', getPreview);
