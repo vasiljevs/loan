@@ -56,6 +56,7 @@ body {
 
 .primary {
   width: 100%;
+  background: $white;
   margin-top: rem(10px);
   border: rem(3px) solid $black;
   padding: rem(12px) rem(14px);
@@ -104,20 +105,31 @@ body {
     margin-bottom: rem(14px);
   }
 
+  .wrapper {
+    display: flex;
+  }
+
   h3 {
     display: block;
-    font-size: 18px;
+    font-size: rem(18px);
     font-weight: 700;
-    line-height: 28px;
+    line-height: rem(28px);
   }
 
   input {
     width: 100%;
-    background: #fdefef;
+    background: $wispPink;
     border: 0;
     border-bottom: rem(2px) solid $black;
     padding: rem(12px) rem(14px);
     font-size: rem(16px);
+  }
+
+  input,
+  button {
+    &:focus {
+      outline: none;
+    }
   }
 }
 
