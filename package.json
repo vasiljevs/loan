@@ -20,7 +20,7 @@
     "url": "https://github.com/vasiljevs/loan-calculator/issues"
   },
   "homepage": "https://github.com/vasiljevs/loan-calculator#readme",
-  "dependencies": {
-    "sass": "^1.15.2"
+  "devDependencies": {
+    "sass": "^1.15.3"
   }
 }
