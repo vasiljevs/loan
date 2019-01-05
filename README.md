@@ -5,12 +5,12 @@
 Calculate your loan period and interest rate with our simple calculator.
 
 ### Rules
-* Amount has to be greater than $500 and less than or equal to $25000
-* Loan period starts from 1 year and up to 5 years
-* Interest rate starts from 12% to 60%
+* Amount: __$500-25,000__
+* Period: __1-5 years__
+* Interest rate: __12-60%__
 
 ### Preview
 🔗 https://projects.vasiljevs.com/loan/
 
 ## License
-__[MIT](LICENSE)__
+[MIT](LICENSE)
